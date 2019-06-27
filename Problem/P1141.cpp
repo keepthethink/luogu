@@ -2,6 +2,8 @@
 using namespace std;
 
 const int MAXN = 1000 + 5;
+const int dx[] = {};
+const int dy[] = {};
 
 int a[MAXN][MAXN];
 int n, m;
