@@ -1,22 +1,18 @@
 #include<iostream>
 using namespace std;
 
-const int MAXN = 10 + 5;
+const int MAXN = 50 + 5;
 
 int v[MAXN][MAXN], f[MAXN][MAXN][MAXN][MAXN];
-int n;
+int n, m;
 
 void input() {
-    int x, y, k;
+    cin >> n >> m;
 
-    cin >> n;
-
-    while(1) {
-        cin >> x >> y >> k;
-        if(x == 0 && y == 0 && k == 0) {
-            break;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            cin >> v[i][j];
         }
-        v[x][y] = k;
     }
 }
 
@@ -24,14 +20,13 @@ int main() {
     input();
 
     for(int i = 1; i <= n; i++) {
-        for(int j = 1; j <= n; j++) {
+        for(int j = 1;j <= m; j++) {
             for(int k = 1; k <= n; k++) {
-                for(int l = 1; l <= n; l++) {
+                for(int l = 1; l <= m; l++) {
                     f[i][j][k][l] = max(
-                        max(f[i - 1][j][k - 1][l], f[i - 1][j][k][l - 1]),
-                        max(f[i][j - 1][k - 1][l], f[i][j - 1][k][l - 1])
+                        max(f[i - 1][j][k - 1][l], f[i][j - 1][k - 1][l]),
+                        max(f[i - 1][j][k][l - 1], f[i][j - 1][k][l - 1])
                     ) + v[i][j] + v[k][l];
-
                     if(i == k && j == l) {
                         f[i][j][k][l] -= v[i][j];
                     }
@@ -41,6 +36,4 @@ int main() {
     }
 
     cout << f[n][n][n][n] << endl;
-
-    return 0;
 }
