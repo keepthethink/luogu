@@ -1,5 +1,6 @@
 #include<iostream>
 #include<algorithm>
+#include<climits>
 using namespace std;
 
 struct Line {
@@ -23,7 +24,7 @@ const int MAXS = 10000;
 TreeNode t[MAXN * 4 + 1];
 Line line[MAXN * 2];
 int n;
-int lborder = (1 << 31) - 1, rborder = (1 << 31);
+int lborder = INT_MAX, rborder = INT_MIN;
 
 void input() {
     cin >> n;
