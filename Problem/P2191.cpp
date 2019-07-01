@@ -2,7 +2,7 @@
 
 const int MAXN = 1000 + 5;
 
-char way[MAXN][MAXN], text[MAXN][MAXN], ans[MAXN];
+char way[MAXN][MAXN], text[MAXN][MAXN], ans[MAXN * MAXN];
 int n;
 
 void input() {
@@ -28,31 +28,31 @@ int main() {
         }
     }
 
+    for(int i = 0; i < n; i++) {
+        for(int j = n - 1; j >= 0; j--) {
+            if(way[j][i] == 'O') {
+                ans[cur++] = text[i][n - j - 1];
+            }
+        }
+    }
+
+    for(int i = n - 1; i >= 0; i--) {
+        for(int j = n - 1; j >= 0; j--) {
+            if(way[i][j] == 'O') {
+                ans[cur++] = text[n - i - 1][n - j - 1];
+            }
+        }
+    }
+
     for(int i = n - 1; i >= 0; i--) {
         for(int j = 0; j < n; j++) {
-            if(way[i][j] == 'O') {
-                ans[cur++] = text[j][i];
+            if(way[j][i] == 'O') {
+                ans[cur++] = text[n - i - 1][j];
             }
         }
     }
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            if(way[i][j] == 'O') {
-                ans[cur++] =text[i][j];
-            }
-        }
-    }
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            if(way[i][j] == 'O') {
-                ans[cur++] =text[i][j];
-            }
-        }
-    }
-
-    ans[cur++] = '\0';
+    ans[cur] = '\0';
 
     printf("%s\n", ans);
 
