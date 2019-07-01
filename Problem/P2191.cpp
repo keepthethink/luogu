@@ -23,7 +23,31 @@ int main() {
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
             if(way[i][j] == 'O') {
-                ans[cur++] = way[i][j];
+                ans[cur++] = text[i][j];
+            }
+        }
+    }
+
+    for(int i = n - 1; i >= 0; i--) {
+        for(int j = 0; j < n; j++) {
+            if(way[i][j] == 'O') {
+                ans[cur++] = text[j][i];
+            }
+        }
+    }
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            if(way[i][j] == 'O') {
+                ans[cur++] =text[i][j];
+            }
+        }
+    }
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            if(way[i][j] == 'O') {
+                ans[cur++] =text[i][j];
             }
         }
     }
