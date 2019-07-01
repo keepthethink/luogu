@@ -28,23 +28,9 @@ int main() {
         }
     }
 
-    for(int i = 0; i < n; i++) {
-        for(int j = n - 1; j >= 0; j--) {
-            ans[cur++] = way[j][i];
-        }
-    }
+    ans[cur++] = '\0';
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            ans[cur++] = way[i][j];
-        }
-    }
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            ans[cur++] = way[i][j];
-        }
-    }
+    printf("%s\n", ans);
 
     return 0;
 }
