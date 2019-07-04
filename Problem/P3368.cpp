@@ -3,7 +3,7 @@ using namespace std;
 
 const int MAXN = 500000 + 5;
 
-int tree[MAXN];
+long long tree[MAXN];
 int n, m;
 
 int lowbit(int k) {
@@ -29,12 +29,14 @@ int sum(int s) {
 void input() {
     cin >> n >> m;
 
+    int last = 0;
     for(int i = 1; i <= n; i++) {
         int k;
 
         cin >> k;
 
-        tree[i] = k - tree[i - 1];
+        add(i, k - last);
+        last = k;
     }
 }
 
@@ -42,7 +44,7 @@ int main() {
     input();
 
     for(int i = 1; i <= m; i++) {
-        int c, x, y, k;
+        long long c, x, y, k;
 
         cin >> c >> x;
 
