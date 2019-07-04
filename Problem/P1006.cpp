@@ -35,5 +35,7 @@ int main() {
         }
     }
 
-    cout << f[n][n][n][n] << endl;
+    cout << f[n][m][n][m] << endl;
+
+    return 0;
 }
