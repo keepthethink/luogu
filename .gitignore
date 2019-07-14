@@ -32,3 +32,6 @@
 *.app
 
 *.dSYM
+*.txt
+*.in
+*.out
