@@ -42,7 +42,7 @@ bool query(int x, int y) {
 
 int main() {
     input();
-    sort(edge + 1, edge + n + 1, cmp);
+    sort(edge + 1, edge + m + 1, cmp);
     for(int i = 1; i <= n; i++) {
         f[i] = i;
     }

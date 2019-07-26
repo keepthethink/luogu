@@ -10,8 +10,8 @@ struct Edge {
     }
 };
 
-const int MAXN = 10000000 + 5;
-const int MAXM = 10000000 + 5;
+const int MAXN = 100000 + 5;
+const int MAXM = 100000 + 5;
 
 Edge edge[MAXM];
 int f[MAXN];
@@ -43,7 +43,7 @@ int main() {
         cin >> edge[i].u >> edge[i].v >> edge[i].w;
     }
 
-    sort(edge + 1, edge + n + 1);
+    sort(edge + 1, edge + m + 1);
 
     long long ans = 0, cnt = 0;
     for(int i = 1; i <= n; i++) {
